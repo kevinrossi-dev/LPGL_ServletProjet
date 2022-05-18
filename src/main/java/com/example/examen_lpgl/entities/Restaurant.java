@@ -11,9 +11,10 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long restaurantId;
 
-    private String name;
+    private String nom;
 
     private String type;
+    private String adresse;
 
     @ManyToMany
     @JoinTable(name="restaurants_plats" , joinColumns = @JoinColumn(name="restaurantId"), inverseJoinColumns = @JoinColumn(name="platId"))
@@ -27,12 +28,20 @@ public class Restaurant {
         return restaurantId;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public String getType() {
@@ -51,11 +60,16 @@ public class Restaurant {
         this.platsList = platsList;
     }
 
-    public Restaurant(Long id, String name, String type, List<Plat> platsList) {
+    public Restaurant(Long id, String adresse,String nom, String type, List<Plat> platsList) {
         this.restaurantId = id;
-        this.name = name;
+        this.adresse=adresse;
+        this.nom = nom;
         this.type = type;
         this.platsList = platsList;
+    }
+
+    public String toString(){
+        return "Restaurant n°"+this.restaurantId+" | "+this.nom+" | "+this.adresse+" | "+this.type;
     }
 
 }

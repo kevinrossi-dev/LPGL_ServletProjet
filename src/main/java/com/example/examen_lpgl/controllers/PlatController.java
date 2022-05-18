@@ -1,6 +1,7 @@
 package com.example.examen_lpgl.controllers;
 
 import com.example.examen_lpgl.entities.Plat;
+import com.example.examen_lpgl.entities.Restaurant;
 import com.example.examen_lpgl.repositories.PlatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins="*",allowedHeaders = "*")
 @RestController
 public class PlatController {
     @Autowired
@@ -28,4 +30,7 @@ public class PlatController {
     public Plat createPlat(@RequestBody Plat plat){
         return platRepository.save(plat);
     }
+
+
+
 }
